@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Meowsing Facts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Chicle&family=Luckiest+Guy&display=swap" rel="stylesheet">
+<style>
+
+body {
+  margin: 0;
+  padding: 0;
+  background: rgb(225, 181, 210);
+  font-family: cursive;
+}
+
+.card {
+  width: 90%;
+  max-width: 455px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) perspective(2000px);
+  background: #fff;
+  transform-style: preserve-3d;
+  box-shadow: inset 300px 0 50px rgba(0, 0, 0, .5), 0 20px 100px rgba(0, 0, 0, .5);
+  transition: 1s;
+}
+
+.card:hover {
+  transform: translate(-50%, -50%) perspective(2000px) rotate(-10deg);
+  box-shadow: inset 20px 0 50px rgba(0, 0, 0, .5), 0 10px 100px rgba(0, 0, 0, .5);
+}
+
+.card:before,
+.card:after {
+  content: '';
+  position: absolute;
+  background: #cd89a9;
+}
+
+.card:before {
+  top: -5px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  transform-origin: bottom;
+  transform: skewX(-45deg);
+}
+
+.card:after {
+  top: 0;
+  right: -5px;
+  width: 5px;
+  height: 100%;
+  transform-origin: left;
+  transform: skewY(-45deg);
+}
+
+.card .imgBox {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-origin: left;
+  transition: 1s cubic-bezier(.15, 1.7, .84, .58);
+}
+
+.card .imgBox img {
+  width: 100%;
+  height: 100%;
+}
+
+.card:hover .imgBox {
+  transform: rotateY(-125deg);
+}
+
+.card .details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 20px;
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 95%; 
+    height: auto; 
+  }
+}
+
+</style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="imgBox">
+      <img src="https://www.weruva.com/cdn/shop/articles/Your-Kittens-First-Year-Header.png" alt="cat">
+    </div>
+    <div class="details">
+      <h2>Meowsing Fact!</h2>
+      <p><%= fact %></p>
+    </div>
+  </div>
+</body>
+
+</html>
